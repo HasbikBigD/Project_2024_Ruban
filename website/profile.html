@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Бассейн</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-swimming-pool me-2"></i>Бассейн
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule.html">Расписание</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Бронирование</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" id="user-nav">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Алерты (для синхронизации с PHP версией) -->
+    <div class="alert alert-info alert-dismissible fade show position-fixed" style="top: 20px; right: 20px; z-index: 9999; display: none;">
+        <i class="fas fa-info-circle me-2"></i>Профиль обновлен успешно!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <section class="py-5 mt-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Личный кабинет</h1>
+                    <p class="lead">Управляйте своими бронированиями и профилем</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="profile-sidebar">
+                        <div class="profile-card text-center mb-4">
+                            <div class="profile-avatar mb-3 bg-primary text-white d-flex align-items-center justify-content-center" style="width: 100px; height: 100px; border-radius: 50%; font-size: 2rem;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5 id="user-name">Загрузка...</h5>
+                            <p class="text-muted" id="user-email">Загрузка...</p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="editProfile()">
+                                <i class="fas fa-edit me-2"></i>Редактировать
+                            </button>
+                        </div>
+                        
+                        <div class="list-group">
+                            <a href="#profile" class="list-group-item list-group-item-action active" onclick="showTab('profile')">
+                                <i class="fas fa-user me-2"></i>Профиль
+                            </a>
+                            <a href="#bookings" class="list-group-item list-group-item-action" onclick="showTab('bookings')">
+                                <i class="fas fa-calendar me-2"></i>Мои бронирования
+                            </a>
+                            <a href="#subscriptions" class="list-group-item list-group-item-action" onclick="showTab('subscriptions')">
+                                <i class="fas fa-id-card me-2"></i>Абонементы
+                            </a>
+                            <a href="#visits" class="list-group-item list-group-item-action" onclick="showTab('visits')">
+                                <i class="fas fa-history me-2"></i>История посещений
+                            </a>
+                            <a href="#payments" class="list-group-item list-group-item-action" onclick="showTab('payments')">
+                                <i class="fas fa-credit-card me-2"></i>Платежи
+                            </a>
+                            <a href="#notifications" class="list-group-item list-group-item-action" onclick="showTab('notifications')">
+                                <i class="fas fa-bell me-2"></i>Уведомления
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="tab-content" id="profile-tab">
+                        <div class="profile-info">
+                            <h3 class="mb-4">Информация о профиле</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <label class="form-label">Имя:</label>
+                                        <p class="form-control-plaintext" id="profile-name">Загрузка...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <label class="form-label">Email:</label>
+                                        <p class="form-control-plaintext" id="profile-email">Загрузка...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <label class="form-label">Телефон:</label>
+                                        <p class="form-control-plaintext" id="profile-phone">Загрузка...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <label class="form-label">Дата регистрации:</label>
+                                        <p class="form-control-plaintext" id="profile-registered">Загрузка...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content d-none" id="bookings-tab">
+                        <h3 class="mb-4">Мои бронирования</h3>
+                        <div id="bookings-list">
+                        </div>
+                    </div>
+
+                    <div class="tab-content d-none" id="subscriptions-tab">
+                        <h3 class="mb-4">Мои абонементы</h3>
+                        <div id="subscriptions-list">
+                        </div>
+                    </div>
+
+                    <div class="tab-content d-none" id="visits-tab">
+                        <h3 class="mb-4">История посещений</h3>
+                        <div id="visits-list">
+                        </div>
+                    </div>
+
+                    <div class="tab-content d-none" id="payments-tab">
+                        <h3 class="mb-4">История платежей</h3>
+                        <div id="payments-list">
+                        </div>
+                    </div>
+
+                    <div class="tab-content d-none" id="notifications-tab">
+                        <h3 class="mb-4">Уведомления</h3>
+                        <div id="notifications-list">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Бассейн</h5>
+                    <p>Ваше здоровье - наш приоритет</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 Бассейн. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

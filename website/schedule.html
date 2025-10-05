@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание - Бассейн</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-swimming-pool me-2"></i>Бассейн
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="schedule.html">Расписание</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Бронирование</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-1"></i>Гость
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="login.html">Вход</a></li>
+                            <li><a class="dropdown-item" href="register.html">Регистрация</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Алерты (для синхронизации с PHP версией) -->
+    <div class="alert alert-warning alert-dismissible fade show position-fixed" style="top: 20px; right: 20px; z-index: 9999; display: none;">
+        <i class="fas fa-exclamation-triangle me-2"></i>Для записи на занятие необходимо войти в систему!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <section class="py-5 mt-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Расписание занятий</h1>
+                    <p class="lead">Выберите удобное время для посещения</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-4 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="schedule-filters">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Дата:</label>
+                                <input type="date" class="form-control" id="schedule-date" onchange="updateSchedule()">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Тип занятия:</label>
+                                <select class="form-select" id="activity-type" onchange="updateSchedule()">
+                                    <option value="all">Все занятия</option>
+                                    <option value="swimming">Плавание</option>
+                                    <option value="aqua">Аквааэробика</option>
+                                    <option value="children">Детские</option>
+                                    <option value="training">Тренировки</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Тренер:</label>
+                                <select class="form-select" id="trainer-filter" onchange="updateSchedule()">
+                                    <option value="all">Все тренеры</option>
+                                    <option value="ivan">Иван Петров</option>
+                                    <option value="maria">Мария Сидорова</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="schedule-table">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Время</th>
+                                    <th>Занятие</th>
+                                    <th>Тренер</th>
+                                    <th>Места</th>
+                                    <th>Цена</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule-tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="text-center mb-4">Статистика занятий</h3>
+                    <div class="row g-4">
+                        <div class="col-md-3 text-center">
+                            <div class="stat-card">
+                                <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
+                                <h4 class="text-primary">156</h4>
+                                <p>Занятий в неделю</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="stat-card">
+                                <i class="fas fa-users fa-3x text-success mb-3"></i>
+                                <h4 class="text-success">2,340</h4>
+                                <p>Посетителей в месяц</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="stat-card">
+                                <i class="fas fa-star fa-3x text-warning mb-3"></i>
+                                <h4 class="text-warning">4.8</h4>
+                                <p>Средняя оценка</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="stat-card">
+                                <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                                <h4 class="text-info">17</h4>
+                                <p>Часов работы в день</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Бассейн</h5>
+                    <p>Ваше здоровье - наш приоритет</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 Бассейн. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

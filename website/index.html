@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бассейн - Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-swimming-pool me-2"></i>Бассейн
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule.html">Расписание</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Бронирование</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Регистрация</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white mb-4">
+                        Добро пожаловать в бассейн
+                    </h1>
+                    <p class="lead text-white mb-4">
+                        Современный бассейн с профессиональными тренерами. 
+                        Здоровье и красота начинаются здесь!
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="booking.html" class="btn btn-warning btn-lg">
+                            <i class="fas fa-calendar-plus me-2"></i>Забронировать
+                        </a>
+                        <a href="services.html" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-list me-2"></i>Наши услуги
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-features">
+                        <div class="feature-card mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-swimming-pool"></i>
+                            </div>
+                            <h5>25-метровый бассейн</h5>
+                            <p class="text-muted">Профессиональное оборудование</p>
+                        </div>
+                        
+                        <div class="feature-card mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h5>Детская зона</h5>
+                            <p class="text-muted">Безопасное обучение плаванию</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h5>Сауна и хамам</h5>
+                            <p class="text-muted">Релакс после тренировки</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Популярные услуги</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-swimmer fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Плавание</h5>
+                            <p class="card-text">Разовое посещение или абонемент на месяц</p>
+                            <div class="price-tag">
+                                <span class="h4 text-success">от 500₽</span>
+                            </div>
+                            <a href="services.html" class="btn btn-primary">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+                            <h5 class="card-title">Аквааэробика</h5>
+                            <p class="card-text">Групповые занятия для всех возрастов</p>
+                            <div class="price-tag">
+                                <span class="h4 text-success">800₽</span>
+                            </div>
+                            <a href="services.html" class="btn btn-primary">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-child fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Детское плавание</h5>
+                            <p class="card-text">Занятия для детей 5-12 лет</p>
+                            <div class="price-tag">
+                                <span class="h4 text-success">600₽</span>
+                            </div>
+                            <a href="services.html" class="btn btn-primary">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Почему выбирают нас</h2>
+            <div class="row g-4">
+                <div class="col-md-3 text-center">
+                    <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
+                    <h5>Безопасность</h5>
+                    <p>Современные системы безопасности и опытные спасатели</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fas fa-user-md fa-3x text-primary mb-3"></i>
+                    <h5>Профессионалы</h5>
+                    <p>Опытные тренеры с медицинским образованием</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                    <h5>Гибкий график</h5>
+                    <p>Работаем с 6:00 до 23:00, 7 дней в неделю</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <i class="fas fa-star fa-3x text-warning mb-3"></i>
+                    <h5>Качество</h5>
+                    <p>Современное оборудование и чистая вода</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>ул. Спортивная, 15</p>
+                        <p><i class="fas fa-phone me-2"></i>+7 (999) 123-45-67</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@pool-volna.ru</p>
+                        <p><i class="fas fa-clock me-2"></i>Пн-Вс: 6:00 - 23:00</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Быстрое бронирование</h3>
+                    <form class="quick-booking">
+                        <div class="mb-3">
+                            <select class="form-select" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="swimming">Плавание</option>
+                                <option value="aqua">Аквааэробика</option>
+                                <option value="children">Детское плавание</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="time" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Забронировать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Бассейн</h5>
+                    <p>Ваше здоровье - наш приоритет</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 Бассейн. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
